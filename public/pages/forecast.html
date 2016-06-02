@@ -1,1 +1,42 @@
-<h1>forecast page</h1>
+<p>
+    <a href="#/">Back to Search</a>
+</p>
+
+<!-- here is where we will interpolate the changes being
+watched for on the 'city' -->
+
+Forecast for {{ city }}
+
+<!-- Below, these different anchor tags reroute the page with the seletected number
+of results, we're going to use the ng-class directive to dynamically decide which
+class should appear on an element, we'll add a background for this -->
+
+<hr />
+Days: <a href="#forecast/2" ng-class="{ 'bg-primary': days === '2' 
+}">2</a> | <a href="#/forecast/5" ng-class="{ 'bg-primary': days === '5' 
+}">5</a> | <a href="#forecast/7" ng-class="{ 'bg-primary': days === '7' 
+}">7</a>
+<hr />
+
+<!-- Now we'll output the data to the screen, with lots of bootstrap utilities -->
+<!-- The "w" object, represents one of the days in the array-->
+<div ng-repeat="w in weatherResult.list">
+    <div class="row">
+        <div class="col-md-12">
+        <!-- since we called the below custom directive weatherReport in the JS
+        file, remember 'normalization', it will be referred to here as weather-report -->
+            <weather-report weather-day="w" convert-to-standard="convertToFahrenheit(daytimeTemp)" convert-to-date="convertToDate(dt)" date-format="MMM d, y"></weather-report>
+        <!-- The snippit of code commented out below is the original code
+        we used in our app, before turning it into a custom re-usable directive -->
+            <!-- <div class="panel panel-default">
+                <div class="panel-heading"> -->
+                <!-- below we actually formatted the date using Angulars filter -->
+                    <!-- <h3 class="panel-title">{{ convertToDate(w.dt) | date: 'MMM d, y' }}</h3>
+                </div>
+                <div class="panel-body">
+                    Daytime temperature: {{ convertToFahrenheit(w.temp.day) }}
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

@@ -6,37 +6,11 @@
 // your going to use
 
 // MODULE:
-
 var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource']);
+
+// you use the ngResource service to go get data off the internet
 
 // Now you want to setup a SPA, with 
 // routing to two different pages 
 // (2 controllors, 2 html pages)
 
-// CONTROLLERS:
-
-weatherApp.controller('homeController', ['$scope', function ($scope) {
-
-}]);
-
-weatherApp.controller('forecastController', ['$scope', function ($scope) {
-
-}]);
-
-// ROUTES:
-
-weatherApp.config(function ($routeProvider) {
-    $routeProvider
-
-    .when('/', {
-        templateUrl: 'pages/home.html',
-        controller: 'homeController'
-    })
-
-    .when('/forecast', {
-        templateUrl: 'pages/forecast.html',
-        controller: 'forecastController'
-    });
-});
-
-// Don't forget to tell your View that your doing an SAP

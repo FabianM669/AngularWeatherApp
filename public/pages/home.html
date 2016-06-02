@@ -1,1 +1,13 @@
-<h1>Home Page</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h4>Forecast by City</h4>
+        <div class="form-group">
+        <!--Below, we add the "ng-model='city' to bind this input to that model"
+        this will set up the two way bindings, so you'll have watchers and the
+        digest cyle will continue to watch for changes -->
+            <input type="text" ng-model="city" class="form-control" />
+        <!-- Next, you go over to the Forecast page, and interpolate it -->
+        </div>
+        <a href="#/forecast" class="btn btn-primary">Get Forecast</a>
+    </div>
+</div>
